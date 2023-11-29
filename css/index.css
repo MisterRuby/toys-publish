@@ -1,0 +1,77 @@
+@import url(style.css);
+
+.header {
+  width: 100%;
+  min-width: 900px;
+  height: 60px;
+  border-bottom: 1px solid #ebf2f2;
+  display: flex;
+  justify-content: center;
+}
+
+.header .navbar {
+  width: 1440px;
+  min-width: 900px;
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .navbar .menu-list {
+  display: flex;
+}
+
+.header .navbar .menu-list .menu:not(:first-of-type) {
+  margin-left: 10px;
+}
+
+.main {
+  width: 100%;
+  min-width: 900px;
+  height: calc(100% - 60px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.main .container {
+  width: 1440px;
+  min-width: 900px;
+  height: 100%;
+  display: flex;
+}
+
+.main .container .sidebar {
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid #ebf2f2;
+}
+
+.main .container .sidebar .menu-list .menu {
+  font-size: 1.5rem;
+}
+
+.main .container .sidebar .menu-list .menu a {
+  display: block;
+  padding: 7px 14px;
+  border-radius: 0.5rem;
+}
+
+.main .container .sidebar .menu-list .menu a:hover {
+  color: white;
+  background-color: black;
+}
+
+.main .container .sidebar .menu-list .menu ul {
+  padding: 0 10px;
+}
+
+.main .container .content {
+  width: calc(100% - 240px);
+  min-width: 600px;
+  height: 100%;
+  background-color: wheat;
+}
