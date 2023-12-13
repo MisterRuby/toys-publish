@@ -1,0 +1,121 @@
+@import url(style.css);
+
+.header {
+  width: 100%;
+  min-width: 900px;
+  height: 60px;
+  border-bottom: 1px solid #ebf2f2;
+  display: flex;
+  justify-content: center;
+}
+
+.header .navbar {
+  width: 1440px;
+  min-width: 900px;
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .navbar .menu-list {
+  display: flex;
+}
+
+.header .navbar .menu-list .menu:not(:first-of-type) {
+  margin-left: 10px;
+}
+
+.main {
+  width: 100%;
+  min-width: 900px;
+  height: calc(100% - 60px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.main .container {
+  width: 1440px;
+  min-width: 900px;
+  height: 100%;
+  display: flex;
+}
+
+.main .container .sidebar {
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid #ebf2f2;
+}
+
+.main .container .sidebar .menu-list .menu {
+  font-size: 1.5rem;
+}
+
+.main .container .sidebar .menu-list .menu a {
+  display: block;
+  padding: 7px 14px;
+  border-radius: 0.5rem;
+}
+
+.main .container .sidebar .menu-list .menu a:hover {
+  color: white;
+  background-color: black;
+}
+
+.main .container .sidebar .menu-list .menu ul {
+  padding: 0 10px;
+}
+
+.main .container .content {
+  width: calc(100% - 240px);
+  min-width: 600px;
+  height: 100%;
+  padding: 0 30px;
+}
+
+.main .container .content .title {
+  margin-bottom: 20px;
+}
+
+.main .container .content .menu-list {
+  padding: 0 20px;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.main .container .content .menu-list .menu-area {
+  width: 50%;
+  padding: 10px;
+}
+
+.main .container .content .menu-list .menu-area .menu {
+  padding: 8px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .container .content .menu-list .menu-area .menu:not(:first-of-type) {
+  border-top: 0;
+}
+
+.main .container .content .menu-list .menu-area .menu:hover {
+  color: white;
+  background-color: black;
+}
+
+.main .container .content .menu-save-button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: crimson;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  font-size: 20px;
+  color: white;
+}

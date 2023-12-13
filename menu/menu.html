@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/menu/menu.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <nav class="navbar">
+        <h1 class="brand">Ruby's Toys</h1>
+        <ul class="menu-list">
+          <li class="menu"><a href="#">회원가입</a></li>
+          <li class="menu"><a href="#">로그인</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- main-->
+    <div class="main">
+      <div class="container">
+        <div class="sidebar">
+          <ul class="menu-list">
+            <li class="menu">
+              <a href="#">메뉴 셋팅</a>
+              <ul>
+                <li><a href="#">하위 메뉴1</a></li>
+                <li><a href="#">하위 메뉴2</a></li>
+                <li><a href="#">하위 메뉴3</a></li>
+              </ul>
+            </li>
+            <li class="menu">
+              <a href="#">메뉴 close</a>
+            </li>
+            <li class="menu">
+              <a href="#">하위 메뉴 없음</a>
+            </li>
+          </ul>
+        </div>
+        <div class="content">
+          <!-- 관리자 계정에서 시스템에 등록된 메뉴 목록을 조회한다. -->
+          <h2 class="title">메뉴 목록</h2>
+          <!-- 
+            1레벨 메뉴에서는 2레벨을 추가할 수 있는 아이콘을 포함한다. 
+            1레벨
+          -->
+          <!-- 2레벨 메뉴에서는 해당 메뉴를 제거, 수정할 수 있는 아이콘을 포함한다. -->
+          <div class="menu-list">
+            <ul class="menu-area menu-area-depth1">
+              <li class="menu" draggable="true">
+                <div class="menu-name">1레벨 메뉴 - 1</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+              <li class="menu" draggable="true">
+                <div class="menu-name">1레벨 메뉴 - 2</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+              <li class="menu" draggable="true">
+                <div class="menu-name">1레벨 메뉴 - 3</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+              <li class="menu" draggable="true">
+                <div class="menu-name">1레벨 메뉴 - 4</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+            </ul>
+            <ul class="menu-area menu-area-depth2">
+              <li class="menu" draggable="true">
+                <div class="menu-name">2레벨 메뉴 - 1</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+              <li class="menu" draggable="true">
+                <div class="menu-name">2레벨 메뉴 - 2</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+              <li class="menu" draggable="true">
+                <div class="menu-name">2레벨 메뉴 - 3</div>
+                <div><span>*</span><span>-</span></div>
+              </li>
+            </ul>
+          </div>
+
+          <button class="menu-save-button">메뉴 저장</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const menuAreas = document.querySelectorAll(".menu-area");
+    menuAreas.forEach((menuArea) => {
+      let currentItemIndex;
+      let currentItem;
+
+      menuArea.addEventListener("dragstart", (e) => {
+        console.log("dragstart");
+        currentItem = e.target;
+        const listArr = [...currentItem.parentElement.children];
+        currentItemIndex = listArr.indexOf(currentItem);
+      });
+
+      menuArea.addEventListener("dragover", (e) => {
+        console.log("dragover");
+        e.preventDefault();
+      });
+
+      menuArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+
+        const currentDropItem = e.target;
+        const listArr = [...currentItem.parentElement.children];
+        const dropItemIndex = listArr.indexOf(currentDropItem);
+
+        if (dropItemIndex < 0) {
+          return;
+        }
+
+        if (currentItemIndex < dropItemIndex) {
+          currentDropItem.after(currentItem);
+        } else {
+          currentDropItem.before(currentItem);
+        }
+      });
+    });
+  </script>
+</html>
